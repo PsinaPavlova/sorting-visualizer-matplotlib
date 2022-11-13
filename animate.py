@@ -5,18 +5,18 @@ fig = plt.figure()
 camera = Camera(fig)
 comparisons = 0
 
-titles = {'1': "Bubblesort algorithm",
-          '2': 'Quicksort algorithm',
-          '3': 'Heapsort algorithm', 
-          '4': 'Introsort algorithm'}
+titles = {'1': "Insertionort algorithm",
+          '2': 'Quicksort algorithm'}
 
 graphs = {'1': plt.bar,
           '2': plt.scatter}
+
 
 def alg_title(alg):
     global title
     title = titles[alg]
     return title
+
 
 def graph_title(gph):
     global graph
@@ -24,6 +24,8 @@ def graph_title(gph):
     return graph
 
 # Plot data set and variable to highlight
+
+
 def Plot(highlight, data):
     x = list(range(len(data)))
     global comparisons
@@ -38,6 +40,7 @@ def Plot(highlight, data):
         graph(x, data, c=data, cmap='nipy_spectral')
 
     plt.title(title)
-    plt.xlabel('Data size:{}, Number of comparisons:{}'.format(len(data), comparisons))
+    plt.xlabel('Data size:{}, Number of comparisons:{}'.format(
+        len(data), comparisons))
 
     camera.snap()

@@ -6,30 +6,27 @@ from heapsort import heapSort
 from introsort import introSort
 from animate import camera, alg_title, graph_title, graphs
 import matplotlib.pyplot as plt
+from InsertionSort import InsertionSort
 
 try:
-    data_size = int(input('Data size(defaut 30):'))
+    data_size = int(input('Data size(defaut 20):'))
 except ValueError:
-    data_size = 30
+    data_size = 20
 
 data = random.sample(range(data_size), data_size)
 
-algorithms = {'1': bubbleSort,
-              '2': quickSort,
-              '3': heapSort,
-              '4': introSort}
+algorithms = {'1': InsertionSort,
+              '2': quickSort}
 
-alg = input('Select the algorithm(1 for bubbleSort, 2 for quickSort, 3 for heapSort, 4 for introSort):')
+alg = input(
+    'Select the algorithm(1 for InsertionSort, 2 for quickSort):')
 if alg not in algorithms:
-    alg = '2'
+    alg = '1'
 
 gph = input('Select the graph(1 for bar, 2 for scatter):')
 if gph not in graphs:
     gph = '1'
 
-save = input('Do you wanna save(y|n):')
-if save == 'y':
-    save = True
 
 graph_title(gph)
 alg_title(alg)
@@ -38,17 +35,11 @@ func = algorithms[alg]
 
 if func == quickSort:
     func(data, 0, len(data) - 1)
-elif func == introSort:
-    func(data, 0, len(data) - 1, 2 * int(math.log2(len(data))))
-elif func == bubbleSort or heapSort:
+elif func == InsertionSort:
     func(data)
 
 interval_time = 20
 animation = camera.animate(interval=interval_time)
 
-# To save as gif install imagemagick, to save as mp4 install ffmpeg(if not already installed)
-if save:
-    #animation.save('animation.gif', dpi=60, writer='imagemagick')
-    animation.save('animation.mp4')
 
 plt.show()
