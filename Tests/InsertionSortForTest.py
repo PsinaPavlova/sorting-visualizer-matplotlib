@@ -1,4 +1,4 @@
-from animate import Plot
+import time
 
 
 def InsertionSort(data):
@@ -8,7 +8,10 @@ def InsertionSort(data):
         while data[j] > key and j >= 0:
             data[j + 1] = data[j]
             j -= 1
-            Plot(j+1, data)
         data[j + 1] = key
-        Plot(j+1, data)
-    return data
+
+
+def measureInsertionSortTime(data):
+    start = time.time()
+    InsertionSort(data)
+    return time.time() - start

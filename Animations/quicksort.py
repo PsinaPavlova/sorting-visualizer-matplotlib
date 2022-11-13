@@ -1,5 +1,6 @@
 from animate import Plot
 
+
 def partition(data, start, end):
     b = (start - 1)  # border
     pivot = data[end]  # pivot
