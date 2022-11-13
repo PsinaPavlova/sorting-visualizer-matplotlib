@@ -1,4 +1,4 @@
-from animate import Plot
+from Animations.animate import Plot
 
 
 def InsertionSort(data):

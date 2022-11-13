@@ -1,9 +1,10 @@
-import random
 import math
-from quicksort import quickSort
-from animate import camera, alg_title
+import random
+
 import matplotlib.pyplot as plt
-from InsertionSort import InsertionSort
+from Animations.animate import alg_title, camera
+from Animations.InsertionSort import InsertionSort
+from Animations.quicksort import quickSort
 
 
 def AnimateSortAlgoritm():
@@ -35,6 +36,3 @@ def AnimateSortAlgoritm():
     animation = camera.animate(interval=interval_time)
 
     plt.show()
-
-
-AnimateSortAlgoritm()
