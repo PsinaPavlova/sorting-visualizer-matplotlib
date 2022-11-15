@@ -1,4 +1,5 @@
 from Animations.animate import Plot
+from random import randrange
 
 
 def partition(data, start, end):
@@ -18,10 +19,19 @@ def partition(data, start, end):
     return b + 1
 
 
+def partitionrand(data, start, end):
+
+    pivot = randrange(start, end)
+    # Swapping the ending element of
+    # the array and the pivot
+    data[end], data[pivot] = data[pivot], data[end]
+    return partition(data, start, end)
+
+
 def quickSort(data, start, end):
     if start < end:
         # Return the pivot index
-        p = partition(data, start, end)
+        p = partitionrand(data, start, end)
 
         # Sort all the elements to the left and to the right of the pivot
         quickSort(data, start, p - 1)

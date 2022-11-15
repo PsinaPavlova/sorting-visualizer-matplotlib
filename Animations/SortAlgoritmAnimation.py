@@ -19,7 +19,7 @@ def AnimateSortAlgoritm():
                   '2': quickSort}
 
     alg = input(
-        'Select the algorithm(1 for InsertionSort, 2 for quickSort):')
+        'Select the algorithm(1 for InsertionSort, 2 for QuickSort using Random Pivoting):')
     if alg not in algorithms:
         alg = '1'
 
