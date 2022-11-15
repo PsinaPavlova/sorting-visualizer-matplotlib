@@ -8,10 +8,8 @@ from Animations.quicksort import quickSort
 
 
 def AnimateSortAlgoritm():
-    try:
-        data_size = int(input('Data size(defaut 20):'))
-    except ValueError:
-        data_size = 20
+
+    data_size = 30
 
     data = random.sample(range(data_size), data_size)
 

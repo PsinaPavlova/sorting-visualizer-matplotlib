@@ -3,32 +3,23 @@ from random import randrange
 
 
 def partition(data, start, end):
-    pivot = start  # pivot
+    b = (start - 1)  # border
+    pivot = data[end]  # pivot
 
-    # a variable to memorize where the
-    i = start + 1
+    for i in range(start, end):
 
-    # partition in the array starts from.
-    for j in range(start + 1, end + 1):
+        if data[i] <= pivot:
+            b += 1
+            data[b], data[i] = data[i], data[b]
 
-        # if the current element is smaller
-        # or equal to pivot, shift it to the
-        # left side of the partition.
-        if data[j] <= data[pivot]:
-            data[i], data[j] = data[j], data[i]
-            i = i + 1
-
-    data[pivot], data[i - 1] = data[i - 1], data[pivot]
-    pivot = i - 1
-    return (pivot)
+    data[b + 1], data[end] = data[end], data[b + 1]
+    return b + 1
 
 
 def partitionrand(data, start, end):
     pivot = randrange(start, end)
 
-    # Swapping the starting element of
-    # the array and the pivot
-    data[start], data[pivot] = data[pivot], data[start]
+    data[end], data[pivot] = data[pivot], data[end]
     return partition(data, start, end)
 
 
