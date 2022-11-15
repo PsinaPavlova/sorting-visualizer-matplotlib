@@ -6,7 +6,7 @@ camera = Camera(fig)
 comparisons = 0
 graph = plt.bar
 titles = {'1': "Insertionsort algorithm",
-          '2': 'Quicksort algorithm'}
+          '2': 'QuickSort using Random Pivoting algorithm'}
 
 
 def alg_title(alg):
