@@ -19,10 +19,14 @@ except ValueError:
 
 data = sample(range(data_size), data_size)
 
+
 print('Sorted list: ', sorted(data))
-print(data)
-print('Time spent on QuickSort using Random Pivoting', measureQuickSortTime(data))
-print('Time spent on InsertionSort', measureInsertionSortTime(data))
+data_copy = data.copy()
+print('Time spent on QuickSort using Random Pivoting',
+      measureQuickSortTime(data_copy))
+data_copy = data.copy()
+print('Time spent on InsertionSort', measureInsertionSortTime(data_copy))
+
 print('Time spent on BuiltInSort', measurebuiltInSortTime(data))
 
 task = input(
